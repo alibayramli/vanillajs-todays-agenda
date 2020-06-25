@@ -1,8 +1,12 @@
 const input = document.querySelector(".input");
 const button = document.querySelector(".button");
-button.addEventListener("click", addLists);
 const list = document.querySelector(".list");
+const filter = document.querySelector('.filter-list');
+
+button.addEventListener("click", addLists);
 list.addEventListener('click', deleteLists);
+filter.addEventListener('click', filterLists);
+
 function addLists(event) {
     event.preventDefault();
     const addedDiv = document.createElement('div');
@@ -41,3 +45,29 @@ function deleteLists(event) {
         parentItem.classList.toggle('completed');
     }
 }
+
+function filterLists(e) {
+    const todos = list.childNodes;
+    todos.forEach((todo) => {
+        switch (e.target.value) {
+            case "all":
+                todo.style.display = 'flex';
+                break;
+            case "completed":
+                if (todo.classList.contains('completed')) {
+                    todo.style.display = 'flex';
+                } else {
+                    todo.style.display = 'none';
+                }
+                break;
+            case "notcompleted":
+                if (todo.classList.contains('completed')) {
+                    todo.style.display = 'none';
+                } else {
+                    todo.style.display = 'flex';
+                }
+                break;
+        }
+    })
+}
+

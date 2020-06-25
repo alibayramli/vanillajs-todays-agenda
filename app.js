@@ -1,6 +1,7 @@
 const input = document.querySelector(".input");
 const button = document.querySelector(".button");
 button.addEventListener("click", addLists);
+const list = document.querySelector(".list");
 list.addEventListener('click', deleteLists);
 function addLists(event) {
     event.preventDefault();
@@ -25,4 +26,11 @@ function addLists(event) {
     // })
     list.append(addedDiv);
     input.value = "";
+}
+function deleteLists(event) {
+    const item = event.target;
+    if (item.classList[0] === 'delete-btn') {
+        const parentItem = item.parentElement;
+        parentItem.remove();
+    }
 }

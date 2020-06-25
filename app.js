@@ -31,6 +31,13 @@ function deleteLists(event) {
     const item = event.target;
     if (item.classList[0] === 'delete-btn') {
         const parentItem = item.parentElement;
-        parentItem.remove();
+        parentItem.classList.add('fall');
+        parentItem.addEventListener('transitionend', () => {
+            parentItem.remove();
+        })
+    }
+    if (item.classList[0] === 'done-btn') {
+        const parentItem = item.parentElement;
+        parentItem.classList.toggle('completed');
     }
 }

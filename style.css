@@ -48,12 +48,13 @@ form button:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: all 0.3s ease;
 }
 .todo li {
     flex: 1;
 }
 .delete-btn,.done-btn {
-    color:blue;
+    color:white;
     border: none;
     padding: 1rem;
     cursor: pointer;
@@ -63,7 +64,7 @@ form button:hover {
     background:lightcoral;
 }
 .done-btn {
-    background:greenyellow
+    background:lightgreen
 }
 .li-item {
     padding: 0rem 0.5rem;
@@ -71,3 +72,11 @@ form button:hover {
 .fa-trash, .fa-check {
     pointer-events: none;
 }
+.completed {
+    text-decoration: line-through;
+    opacity: 0.3;
+}
+.fall {
+    /* transform: translateY(8rem) rotateZ(20deg); */
+    opacity: 0;
+}   

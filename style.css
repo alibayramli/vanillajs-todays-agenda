@@ -114,3 +114,8 @@ select {
     background: white;
     color: blueviolet;
 }
+
+.filtered-list {
+    margin: 1rem;
+    text-align: center;
+}

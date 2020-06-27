@@ -2,6 +2,7 @@ const input = document.querySelector(".input");
 const button = document.querySelector(".button");
 const list = document.querySelector(".list");
 const filter = document.querySelector('.filter-list');
+const filterInfo = document.querySelector('.filtered-list');
 document.addEventListener("DOMContentLoaded", getListsFromLocalStorage);
 button.addEventListener("click", addLists);
 list.addEventListener('click', deleteLists);
@@ -37,23 +38,28 @@ function addLists(event) {
 function deleteLists(event) {
     const item = event.target;
     if (item.classList[0] === 'delete-btn') {
+        filter.value = '';
+        filterInfo.style.display = 'none';
         const parentItem = item.parentElement;
         parentItem.classList.add('fall');
-        console.log(parentItem.children[0].textContent)
         removeLocalList(parentItem);
         parentItem.addEventListener('transitionend', () => {
             parentItem.remove();
         })
     }
     if (item.classList[0] === 'done-btn') {
+        filter.value = '';
+        filterInfo.style.display = 'none';
         const parentItem = item.parentElement;
         parentItem.classList.toggle('completed');
     }
 }
 
 function filterLists(e) {
+    if (list.children.length) {
+        filterInfo.style.display = 'block';
+    }
     const todos = list.childNodes;
-    const filterInfo = document.querySelector('.filtered-list');
     let cntAll = 0, cntCompleted = 0, cntNotCompleted = 0;
     todos.forEach((todo) => {
         switch (e.target.value) {
@@ -137,7 +143,6 @@ function removeLocalList(localList) {
         lists = JSON.parse(localStorage.getItem('todos'));
     }
     const index = localList.children[0].innerText;
-    console.log(lists.indexOf(index))
     lists.splice(lists.indexOf(index), 1);
     localStorage.setItem('todos', JSON.stringify(lists));
 }

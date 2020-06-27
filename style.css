@@ -27,6 +27,11 @@ form button {
     cursor: pointer;
     transition: all 0.3s ease   ;
 }
+@media only screen and (max-width: 768px) {
+    form input {
+        width: 15rem;
+    }
+}
 form button:hover {
     background:blueviolet;
     color: white;

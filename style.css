@@ -110,7 +110,7 @@ select {
     cursor: pointer;
     padding: 1rem;
 }
-.select::after {
+/* .select::after {
     content: "\25BC";
     position: absolute;
     background: blueviolet;
@@ -119,12 +119,12 @@ select {
     padding: 1rem;
     pointer-events: none;
     transition: all 0.3s ease;
-}
+} */
 
-.select:hover::after {
+/* .select:hover::after {
     background: white;
     color: blueviolet;
-}
+} */
 
 .filtered-list {
     margin: 1rem;

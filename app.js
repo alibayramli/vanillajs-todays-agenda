@@ -28,6 +28,8 @@ function addLists(event) {
         deleteBtn.innerHTML = `<i class="fas fa-trash"></i>`;
         deleteBtn.classList.add("delete-btn");
         addedDiv.appendChild(deleteBtn);
+        addedDiv.children[2].disabled = true;
+        addedDiv.children[2].style.opacity = '0.7';
         // deleteBtn.addEventListener('click', (e) => {
         //     addedDiv.remove()
         // })
@@ -52,6 +54,14 @@ function deleteLists(event) {
         filterInfo.style.display = 'none';
         const parentItem = item.parentElement;
         parentItem.classList.toggle('completed');
+        if (parentItem.classList.contains('completed')) {
+            parentItem.children[2].disabled = false;
+            parentItem.children[2].style.opacity = '1';
+
+        } else {
+            parentItem.children[2].disabled = true;
+            parentItem.children[2].style.opacity = '0.7';
+        }
     }
 }
 
@@ -131,6 +141,8 @@ function getListsFromLocalStorage() {
         deleteBtn.innerHTML = `<i class="fas fa-trash"></i>`;
         deleteBtn.classList.add("delete-btn");
         addedDiv.appendChild(deleteBtn);
+        addedDiv.children[2].disabled = true;
+        addedDiv.children[2].style.opacity = '0.7';
         list.appendChild(addedDiv);
     })
 }

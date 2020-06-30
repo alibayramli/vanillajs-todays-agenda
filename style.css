@@ -85,10 +85,8 @@ form button:hover {
 }
 .completed {
     text-decoration: line-through;
-    opacity: 0.3;
 }
 .fall {
-    /* transform: translateY(8rem) rotateZ(20deg); */
     opacity: 0;
 }
 
@@ -109,6 +107,7 @@ select {
     width: 10rem;
     cursor: pointer;
     padding: 1rem;
+    background-color: white;
 }
 /* .select::after {
     content: "\25BC";
